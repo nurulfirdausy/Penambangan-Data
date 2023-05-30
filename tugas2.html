@@ -63,6 +63,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Implementasi Decision Tree" href="tugas3.html" />
+    <link rel="prev" title="Tugas Menghitung Jarak Antar Data" href="tugas1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -153,10 +155,16 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pendahuluan</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tugas Penambangan Data</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="tugas1.html">Tugas Menghitung Jarak Antar Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Implementasi Naive Bayes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas3.html">Implementasi Decision Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utspendat.html">UTS Penambangan Data</a></li>
 </ul>
 
     </div>
@@ -374,7 +382,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-49130bde-eb09-4eae-bd85-c62ae1b2eb08">
+  <div id="df-97dd3a86-6915-45f8-9e61-028635f31fe3">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -445,7 +453,7 @@ document.write(`
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-49130bde-eb09-4eae-bd85-c62ae1b2eb08')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-97dd3a86-6915-45f8-9e61-028635f31fe3')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -496,12 +504,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-49130bde-eb09-4eae-bd85-c62ae1b2eb08 button.colab-df-convert');
+          document.querySelector('#df-97dd3a86-6915-45f8-9e61-028635f31fe3 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-49130bde-eb09-4eae-bd85-c62ae1b2eb08');
+          const element = document.querySelector('#df-97dd3a86-6915-45f8-9e61-028635f31fe3');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -559,15 +567,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Iris-versicolor&#39;, &#39;Iris-versicolor&#39;, &#39;Iris-versicolor&#39;,
-       &#39;Iris-versicolor&#39;, &#39;Iris-virginica&#39;, &#39;Iris-virginica&#39;,
-       &#39;Iris-virginica&#39;, &#39;Iris-virginica&#39;, &#39;Iris-versicolor&#39;,
-       &#39;Iris-virginica&#39;, &#39;Iris-versicolor&#39;, &#39;Iris-versicolor&#39;,
-       &#39;Iris-setosa&#39;, &#39;Iris-versicolor&#39;, &#39;Iris-setosa&#39;, &#39;Iris-virginica&#39;,
-       &#39;Iris-setosa&#39;, &#39;Iris-versicolor&#39;, &#39;Iris-setosa&#39;, &#39;Iris-versicolor&#39;,
-       &#39;Iris-setosa&#39;, &#39;Iris-setosa&#39;, &#39;Iris-versicolor&#39;, &#39;Iris-setosa&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Iris-virginica&#39;, &#39;Iris-setosa&#39;, &#39;Iris-versicolor&#39;,
+       &#39;Iris-virginica&#39;, &#39;Iris-versicolor&#39;, &#39;Iris-virginica&#39;,
+       &#39;Iris-setosa&#39;, &#39;Iris-setosa&#39;, &#39;Iris-setosa&#39;, &#39;Iris-setosa&#39;,
        &#39;Iris-setosa&#39;, &#39;Iris-versicolor&#39;, &#39;Iris-virginica&#39;,
-       &#39;Iris-versicolor&#39;, &#39;Iris-virginica&#39;, &#39;Iris-versicolor&#39;],
+       &#39;Iris-virginica&#39;, &#39;Iris-versicolor&#39;, &#39;Iris-versicolor&#39;,
+       &#39;Iris-setosa&#39;, &#39;Iris-virginica&#39;, &#39;Iris-virginica&#39;, &#39;Iris-setosa&#39;,
+       &#39;Iris-versicolor&#39;, &#39;Iris-versicolor&#39;, &#39;Iris-setosa&#39;,
+       &#39;Iris-virginica&#39;, &#39;Iris-versicolor&#39;, &#39;Iris-virginica&#39;,
+       &#39;Iris-setosa&#39;, &#39;Iris-virginica&#39;, &#39;Iris-versicolor&#39;, &#39;Iris-setosa&#39;],
       dtype=&#39;&lt;U15&#39;)
 </pre></div>
 </div>
@@ -587,9 +595,9 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy :  0.9666666666666667
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 8,  0,  0],
-       [ 0, 14,  1],
-       [ 0,  0,  7]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11,  0,  0],
+       [ 0,  9,  1],
+       [ 0,  0,  9]])
 </pre></div>
 </div>
 </div>
@@ -603,7 +611,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f31df35c-0339-4f75-b7d5-c48a2b4726f1">
+  <div id="df-ca5106fe-dfc8-43ed-8e87-c9fcf091895d">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -631,12 +639,12 @@ document.write(`
     <tr>
       <th>0</th>
       <td>Iris-versicolor</td>
-      <td>Iris-versicolor</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Iris-versicolor</td>
-      <td>Iris-versicolor</td>
+      <td>Iris-setosa</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>2</th>
@@ -645,13 +653,13 @@ document.write(`
     </tr>
     <tr>
       <th>3</th>
-      <td>Iris-versicolor</td>
-      <td>Iris-versicolor</td>
+      <td>Iris-virginica</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Iris-virginica</td>
-      <td>Iris-virginica</td>
+      <td>Iris-versicolor</td>
+      <td>Iris-versicolor</td>
     </tr>
     <tr>
       <th>5</th>
@@ -660,28 +668,28 @@ document.write(`
     </tr>
     <tr>
       <th>6</th>
-      <td>Iris-virginica</td>
-      <td>Iris-virginica</td>
+      <td>Iris-setosa</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>Iris-virginica</td>
-      <td>Iris-virginica</td>
+      <td>Iris-setosa</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>Iris-versicolor</td>
-      <td>Iris-versicolor</td>
+      <td>Iris-setosa</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Iris-versicolor</td>
-      <td>Iris-virginica</td>
+      <td>Iris-setosa</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>Iris-versicolor</td>
-      <td>Iris-versicolor</td>
+      <td>Iris-setosa</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>11</th>
@@ -690,23 +698,23 @@ document.write(`
     </tr>
     <tr>
       <th>12</th>
-      <td>Iris-setosa</td>
-      <td>Iris-setosa</td>
+      <td>Iris-virginica</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>Iris-versicolor</td>
-      <td>Iris-versicolor</td>
+      <td>Iris-virginica</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>Iris-setosa</td>
-      <td>Iris-setosa</td>
+      <td>Iris-versicolor</td>
+      <td>Iris-versicolor</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>Iris-virginica</td>
-      <td>Iris-virginica</td>
+      <td>Iris-versicolor</td>
+      <td>Iris-versicolor</td>
     </tr>
     <tr>
       <th>16</th>
@@ -715,73 +723,73 @@ document.write(`
     </tr>
     <tr>
       <th>17</th>
-      <td>Iris-versicolor</td>
-      <td>Iris-versicolor</td>
+      <td>Iris-virginica</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>Iris-setosa</td>
-      <td>Iris-setosa</td>
+      <td>Iris-virginica</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>Iris-versicolor</td>
-      <td>Iris-versicolor</td>
+      <td>Iris-setosa</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>Iris-setosa</td>
-      <td>Iris-setosa</td>
+      <td>Iris-versicolor</td>
+      <td>Iris-versicolor</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>Iris-setosa</td>
-      <td>Iris-setosa</td>
+      <td>Iris-versicolor</td>
+      <td>Iris-versicolor</td>
     </tr>
     <tr>
       <th>22</th>
-      <td>Iris-versicolor</td>
-      <td>Iris-versicolor</td>
+      <td>Iris-setosa</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>23</th>
-      <td>Iris-setosa</td>
-      <td>Iris-setosa</td>
+      <td>Iris-virginica</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
       <th>24</th>
-      <td>Iris-setosa</td>
-      <td>Iris-setosa</td>
+      <td>Iris-versicolor</td>
+      <td>Iris-versicolor</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>Iris-versicolor</td>
-      <td>Iris-versicolor</td>
+      <td>Iris-virginica</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
       <th>26</th>
-      <td>Iris-virginica</td>
-      <td>Iris-virginica</td>
+      <td>Iris-setosa</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>27</th>
-      <td>Iris-versicolor</td>
-      <td>Iris-versicolor</td>
+      <td>Iris-virginica</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
       <th>28</th>
-      <td>Iris-virginica</td>
-      <td>Iris-virginica</td>
+      <td>Iris-versicolor</td>
+      <td>Iris-versicolor</td>
     </tr>
     <tr>
       <th>29</th>
-      <td>Iris-versicolor</td>
-      <td>Iris-versicolor</td>
+      <td>Iris-setosa</td>
+      <td>Iris-setosa</td>
     </tr>
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-f31df35c-0339-4f75-b7d5-c48a2b4726f1')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-ca5106fe-dfc8-43ed-8e87-c9fcf091895d')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -832,12 +840,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-f31df35c-0339-4f75-b7d5-c48a2b4726f1 button.colab-df-convert');
+          document.querySelector('#df-ca5106fe-dfc8-43ed-8e87-c9fcf091895d button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-f31df35c-0339-4f75-b7d5-c48a2b4726f1');
+          const element = document.querySelector('#df-ca5106fe-dfc8-43ed-8e87-c9fcf091895d');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -891,6 +899,24 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="tugas1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tugas Menghitung Jarak Antar Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tugas3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Implementasi Decision Tree</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
