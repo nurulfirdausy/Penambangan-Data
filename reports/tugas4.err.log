@@ -15,15 +15,15 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-data1 = iris.drop(columns=[''])
+data1 = iris.drop(columns=['class'])
 data1.head(150)
 ------------------
 
 
 [0;31m[0m
 [0;31mKeyError[0mTraceback (most recent call last)
-[0;32m<ipython-input-8-cc0294d515b2>[0m in [0;36m<cell line: 1>[0;34m()[0m
-[0;32m----> 1[0;31m [0mdata1[0m [0;34m=[0m [0miris[0m[0;34m.[0m[0mdrop[0m[0;34m([0m[0mcolumns[0m[0;34m=[0m[0;34m[[0m[0;34m''[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-8-6428afbaed81>[0m in [0;36m<cell line: 1>[0;34m()[0m
+[0;32m----> 1[0;31m [0mdata1[0m [0;34m=[0m [0miris[0m[0;34m.[0m[0mdrop[0m[0;34m([0m[0mcolumns[0m[0;34m=[0m[0;34m[[0m[0;34m'class'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      2[0m [0mdata1[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;36m150[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
 [0;32m/usr/local/lib/python3.10/dist-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
@@ -68,5 +68,5 @@ data1.head(150)
 [0m[1;32m   6935[0m             [0mindexer[0m [0;34m=[0m [0mindexer[0m[0;34m[[0m[0;34m~[0m[0mmask[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 [1;32m   6936[0m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mdelete[0m[0;34m([0m[0mindexer[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mKeyError[0m: "[''] not found in axis"
+[0;31mKeyError[0m: "['class'] not found in axis"
 
